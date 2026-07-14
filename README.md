@@ -1,7 +1,6 @@
 # Network-Analyzer
 Refreshing my knowledge on Python.
 
-
 ### What it does
 
 - Perform internet speed tests using Ookla's Speedtest
@@ -13,13 +12,10 @@ Refreshing my knowledge on Python.
 
 ### Features
 
-Speed Test
 - Automatic server selection
 - Download speed testing
 - Upload speed testing
 - Ping measurement
- 
-Network Monitoring
 - Continuous monitoring mode
 - Current ping statistics
 - Historical ping averaging
