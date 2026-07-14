@@ -1,9 +1,3 @@
-#
-#
-#           Hello, this is my first Python project. I am building a network analyser. Essentially the goal is to have splash screen that gives you the option to run a network speed test(using Ookla's speedtest)
-#           or monitor your network to identify any anomilies (e.g. high ping, high packet loss)
-#
-
 import speedtest
 from icmplib import ping
 
