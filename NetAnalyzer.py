@@ -58,7 +58,7 @@ def googleping():
         packet_history = []
         while True:
               print()
-              result = ping("8.8.8.8",privileged=False)
+              result = ping("8.8.8.8", privileged=False)
               ping_history.append(result.avg_rtt)
               packet_history.append(result.packet_loss)
               pingavg = sum(ping_history)/len(ping_history)
@@ -81,7 +81,7 @@ def cloudflareping():
         packet_history = []
         while True:
               print()
-              result = ping("1.1.1.1",privileged=False)
+              result = ping("1.1.1.1", privileged=False)
               ping_history.append(result.avg_rtt)
               packet_history.append(result.packet_loss)
               pingavg = sum(ping_history)/len(ping_history)
