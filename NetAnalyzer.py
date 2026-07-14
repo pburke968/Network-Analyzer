@@ -1,5 +1,15 @@
 import speedtest
-from icmplib import ping
+from icmplib import ping, SocketPermissionError
+
+def safe_ping(host):
+    # icmplib defaults to privileged mode (raw sockets), which requires
+    # root on Linux and raises SocketPermissionError for normal users.
+    # Fall back to unprivileged mode so monitoring works without sudo.
+    # (The privileged flag is ignored on Windows, where both paths work.)
+    try:
+        return ping(host)
+    except SocketPermissionError:
+        return ping(host, privileged=False)
 
 def main():
     uip = int(input(''' What would you like to do?
@@ -58,7 +68,7 @@ def googleping():
         packet_history = []
         while True:
               print()
-              result = ping("8.8.8.8")
+              result = safe_ping("8.8.8.8")
               ping_history.append(result.avg_rtt)
               packet_history.append(result.packet_loss)
               pingavg = sum(ping_history)/len(ping_history)
@@ -81,7 +91,7 @@ def cloudfareping():
         packet_history = []
         while True:
               print()
-              result = ping("1.1.1.1")
+              result = safe_ping("1.1.1.1")
               ping_history.append(result.avg_rtt)
               packet_history.append(result.packet_loss)
               pingavg = sum(ping_history)/len(ping_history)
