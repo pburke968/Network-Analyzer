@@ -65,16 +65,16 @@ def googleping():
               packetavg = sum(packet_history)/len(packet_history)
               print(f"Current Ping: {result.avg_rtt:.2f} ms -- Current Packet Loss: {result.packet_loss:.2f}")
               print(f"Average Ping: {pingavg:.2f} ms -- Average Packet Loss: {packetavg:.2f}")
-
-        if result.avg_rtt > pingavg * 1.25:
-                print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
-        else: 
-                pass
               
-        if result.packet_loss > 0:
-                print(f"ALERT PACKET LOSS: {result.packet_loss:.2f}")
-        else: 
-                pass
+              if result.avg_rtt > pingavg * 1.25:
+                  print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
+              else: 
+                  pass
+                  
+              if result.packet_loss > 0:
+                  print(f"ALERT PACKET LOSS: {result.packet_loss:.2f}")
+              else: 
+                  pass
 
 def cloudflareping():
         ping_history = []
@@ -89,14 +89,13 @@ def cloudflareping():
               print(f"Current Ping: {result.avg_rtt:.2f} ms -- Current Packet Loss: {result.packet_loss:.2f}")
               print(f"Average Ping: {pingavg:.2f} ms -- Average Packet Loss: {packetavg:.2f}")
 
-        if result.avg_rtt > pingavg * 1.25:
-                print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
-        else: 
-                pass
-              
-        if result.packet_loss > 0:
-                print(f"ALERT PACKET LOSS: {result.packet_loss:.2f}")
-        else: 
-                pass
-
+              if result.avg_rtt > pingavg * 1.25:
+                  print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
+              else: 
+                  pass
+                  
+              if result.packet_loss > 0:
+                  print(f"ALERT PACKET LOSS: {result.packet_loss:.2f}")
+              else: 
+                  pass
 main()
