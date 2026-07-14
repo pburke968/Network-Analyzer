@@ -40,14 +40,14 @@ def speed():
 def monitor():
     uip = int(input(''' What would you like to do?
                     1) Google
-                    2) Cloudfare
+                    2) Cloudflare
                     
                     Your Choice: '''))
     if uip == 1:
            googleping()
 
     elif uip == 2:
-            cloudfareping()
+            cloudflareping()
 
     else:
         print("Please select a valid option")
@@ -76,7 +76,7 @@ def googleping():
         else: 
                 pass
 
-def cloudfareping():
+def cloudflareping():
         ping_history = []
         packet_history = []
         while True:
