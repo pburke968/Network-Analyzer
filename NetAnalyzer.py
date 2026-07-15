@@ -44,21 +44,21 @@ def monitor():
                     
                     Your Choice: '''))
     if uip == 1:
-           googleping()
+           monitor_host("8.8.8.8")
 
     elif uip == 2:
-            cloudflareping()
+            monitor_host("1.1.1.1")
 
     else:
         print("Please select a valid option")
         monitor()
 
-def googleping():
+def monitor_host(host):
         ping_history = []
         packet_history = []
         while True:
               print()
-              result = ping("8.8.8.8", privileged=False)
+              result = ping(host, privileged=False)
               ping_history.append(result.avg_rtt)
               packet_history.append(result.packet_loss)
               pingavg = sum(ping_history)/len(ping_history)
@@ -76,26 +76,5 @@ def googleping():
               else: 
                   pass
 
-def cloudflareping():
-        ping_history = []
-        packet_history = []
-        while True:
-              print()
-              result = ping("1.1.1.1", privileged=False)
-              ping_history.append(result.avg_rtt)
-              packet_history.append(result.packet_loss)
-              pingavg = sum(ping_history)/len(ping_history)
-              packetavg = sum(packet_history)/len(packet_history)
-              print(f"Current Ping: {result.avg_rtt:.2f} ms -- Current Packet Loss: {result.packet_loss:.2f}")
-              print(f"Average Ping: {pingavg:.2f} ms -- Average Packet Loss: {packetavg:.2f}")
 
-              if result.avg_rtt > pingavg * 1.25:
-                  print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
-              else: 
-                  pass
-                  
-              if result.packet_loss > 0:
-                  print(f"ALERT PACKET LOSS: {result.packet_loss:.2f}")
-              else: 
-                  pass
 main()
