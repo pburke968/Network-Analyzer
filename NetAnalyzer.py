@@ -8,10 +8,10 @@ def main():
                     
                     Your Choice: '''))
     if uip == 1:
-           speed()
+        speed()
 
     elif uip == 2:
-            monitor()
+        monitor()
 
     else:
         print(f"Please select a valid option")
@@ -44,10 +44,10 @@ def monitor():
                     
                     Your Choice: '''))
     if uip == 1:
-           monitor_host("8.8.8.8")
+        monitor_host("8.8.8.8")
 
     elif uip == 2:
-            monitor_host("1.1.1.1")
+        monitor_host("1.1.1.1")
 
     else:
         print("Please select a valid option")
@@ -67,14 +67,14 @@ def monitor_host(host):
               print(f"Average Ping: {pingavg:.2f} ms -- Average Packet Loss: {packetavg:.2f}")
               
               if result.avg_rtt > pingavg * 1.25:
-                  print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
+                print(f"ALERT HIGH PING: {result.avg_rtt:.2f} -- PING AVG: {pingavg:.2f} ")
               else: 
-                  pass
+                pass
                   
               if result.packet_loss > 0:
                   print(f"ALERT PACKET LOSS: {result.packet_loss:.2f}")
               else: 
-                  pass
+                pass
 
 
 main()
